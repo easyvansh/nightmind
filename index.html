@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nightmind Screensaver · Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Anime.js CDN -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+    integrity="sha512-98Y9QKq8QxkMIGeJr8eQOrzxAq5vVZaHZploQxqR1eo1A3P74zPZVQvZ1g4RkKVG8FkQLm4GdE2S6kU5C6Gx8w=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    defer>
+  </script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Clock -->
+  <div id="clock-overlay">
+    <div id="clock-time"></div>
+    <div id="clock-date"></div>
+  </div>
+
+  <!-- Quote -->
+  <div id="quote-overlay">
+    <div id="quote-text"></div>
+    <div id="quote-author"></div>
+  </div>
+
+  <!-- Control Dock (Full) -->
+  <div id="control-dock" class="ui">
+    <div id="dock-top">
+      <div id="brand">
+        <div id="brand-icon"></div>
+        <div>
+          <div id="brand-text-main">Nightmind Studio</div>
+          <div id="brand-text-sub">Ambient Screensaver · Focus & Calm</div>
+        </div>
+      </div>
+
+      <div class="dock-top-right">
+        <div id="dock-badge">
+          <div id="dock-badge-dot"></div>
+          <span id="panel-badge-text">Space Drift · Calm</span>
+        </div>
+        <button id="dock-collapse" class="icon-button" title="Hide controls (leave screensaver)">
+          ⌄
+        </button>
+      </div>
+    </div>
+
+    <div id="dock-main">
+      <!-- Theme pills -->
+      <div class="pill-group" id="theme-group">
+        <span class="pill-label">Theme</span>
+        <button class="pill active" data-theme="space">
+          <span class="pill-dot"></span>Space Drift
+        </button>
+        <button class="pill" data-theme="nebula">
+          <span class="pill-dot"></span>Nebula Drift
+        </button>
+        <button class="pill" data-theme="void">
+          <span class="pill-dot"></span>Deep Void
+        </button>
+        <button class="pill" data-theme="dust">
+          <span class="pill-dot"></span>Cosmic Dust
+        </button>
+        <button class="pill" data-theme="aurora">
+          <span class="pill-dot"></span>Aurora
+        </button>
+        <button class="pill" data-theme="ocean">
+          <span class="pill-dot"></span>Night Ocean
+        </button>
+        <button class="pill" data-theme="fireflies">
+          <span class="pill-dot"></span>Fireflies
+        </button>
+        <button class="pill" data-theme="sakura">
+          <span class="pill-dot"></span>Sakura
+        </button>
+      </div>
+
+      <!-- Mood + Toggles -->
+      <div id="mood-group-wrap" class="mood-wrap">
+        <div class="pill-group" id="mood-group">
+          <span class="pill-label">Mood</span>
+          <button class="pill active" data-mood="calm">Calm</button>
+          <button class="pill" data-mood="flow">Flow</button>
+          <button class="pill" data-mood="alive">Alive</button>
+        </div>
+        <div class="pill-group" id="toggle-group">
+          <label class="toggle-pill" data-toggle="clock">
+            <input type="checkbox" checked />
+            <span class="toggle-pill-indicator"></span>
+            <span class="text">⏰ Clock</span>
+          </label>
+          <label class="toggle-pill" data-toggle="quotes">
+            <input type="checkbox" checked />
+            <span class="toggle-pill-indicator"></span>
+            <span class="text">💬 Quotes</span>
+          </label>
+          <label class="toggle-pill" data-toggle="dark">
+            <input type="checkbox" />
+            <span class="toggle-pill-indicator"></span>
+            <span class="text">🌙 Extra dark</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Fine controls -->
+      <div class="fine-controls">
+        <div class="slider-group">
+          <div class="slider-label-row">
+            <span class="name">Motion</span>
+            <span class="value" id="motion-label">Medium</span>
+          </div>
+          <div class="slider-wrap">
+            <input id="motion-slider" type="range" min="0" max="2" step="1" value="1" />
+          </div>
+        </div>
+        <div class="slider-group">
+          <div class="slider-label-row">
+            <span class="name">Density</span>
+            <span class="value" id="density-label">Medium</span>
+          </div>
+          <div class="slider-wrap">
+            <input id="density-slider" type="range" min="0" max="2" step="1" value="1" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Minimal Dock -->
+  <div id="mini-dock" class="ui mini-dock is-hidden">
+    <span id="mini-dock-label">Space Drift · Calm</span>
+    <button id="mini-dock-open" class="icon-button">Menu</button>
+  </div>
+
+  <!-- Shortcuts hint -->
+  <div id="hint" class="ui">
+    <span class="label">Shortcuts</span>
+    <span><kbd>F</kbd> fullscreen</span>
+    <span><kbd>T</kbd> theme</span>
+    <span><kbd>C</kbd> clock</span>
+    <span><kbd>Q</kbd> quote</span>
+    <span><kbd>M</kbd> menu</span>
+  </div>
+</body>
+</html>
